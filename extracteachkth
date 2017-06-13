@@ -1,0 +1,32 @@
+int[] extractEachKth(int[] inputArray, int k) {
+    
+    
+    ArrayList<Integer> elems=new ArrayList<Integer>();
+    ArrayList<Integer> indices=new ArrayList<Integer>();
+    int n =1;
+    int len=inputArray.length;
+    while((n*k-1) <= len){
+        indices.add((n*k-1));
+        n++;
+    }
+    
+    for(int i=0;i<len;i++){
+        if(indices.contains(i)){
+            
+        }else{
+            elems.add(inputArray[i]);
+        }
+    }
+    
+    int[] result=new int[elems.size()];
+    int i=0;
+    for(Integer in:elems){
+        result[i++]=in;
+    }
+    
+    return result;
+    
+    
+    
+
+}
