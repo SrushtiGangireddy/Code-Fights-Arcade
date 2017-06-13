@@ -1,0 +1,29 @@
+String longestDigitsPrefix(String inputString) {
+    
+    Pattern p=Pattern.compile("^(\\d*)");
+    Matcher m=p.matcher(inputString);
+    
+    ArrayList<String> matches=new ArrayList<String>();
+    
+    while(m.find()){
+        matches.add(m.group());
+    }
+    
+    System.out.println(matches);
+    if(matches.size() > 1){
+        int maxSize=0;
+        String fin="";
+        for(String s:matches){
+            if(s.length() > maxSize){
+                maxSize=s.length();
+                fin=s;
+            }
+        }
+        return fin;
+    }else if(matches.size() == 1){
+        return matches.get(0);
+    }
+    
+    return "";
+    
+}
