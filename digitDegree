@@ -1,0 +1,33 @@
+int digitDegree(int n) {
+        
+    int counter = 0;
+    
+    while(numDigits(n) > 1){
+        n=sumDigits(n);
+        counter++;
+    }
+    
+    return counter;
+}
+
+int numDigits(int number){
+    int length = (int) Math.log10(number) + 1;
+    return length;
+}
+
+int sumDigits(int number){
+    
+    String temp=String.valueOf(number);
+    
+    int sum=0;
+    
+    for(int i=0;i<temp.length();i++){
+        String ch=Character.toString(temp.charAt(i));
+        sum += Integer.valueOf(ch);
+    }
+    
+    return sum;
+    
+    
+}
+
