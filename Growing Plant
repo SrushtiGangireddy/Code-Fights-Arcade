@@ -1,0 +1,14 @@
+int growingPlant(int upSpeed, int downSpeed, int desiredHeight) {
+
+    int counter = 1;
+    int height =0;
+    
+    height+=upSpeed;
+    while(height<desiredHeight) {
+        height-=downSpeed;
+        counter++;
+        height+=upSpeed;
+    }
+    
+    return counter;
+}
