@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution{
+    public static void main(String args[]){
+        Scanner sc=new Scanner(System.in);
+        
+        int n = sc.nextInt();
+        
+        for(int i=0;i<n;i++){
+            String s = sc.next();
+            
+            Pattern p =Pattern.compile("[1]{1}[0]+[1]{1}");
+            Matcher m=p.matcher(s);
+            
+            int from=0;
+            int counter=0;
+            
+            while(m.find(from)){
+                counter++;
+                from=m.end()-1;
+            }
+         System.out.println(counter);
+        }
+        
+        
+    }
+}
