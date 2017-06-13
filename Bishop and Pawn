@@ -1,0 +1,61 @@
+boolean bishopAndPawn(String bishop, String pawn) {
+    
+    HashMap<String,Integer> lenum=new HashMap<String,Integer>();
+    lenum.put("a",0);lenum.put("b",1);lenum.put("c",2);
+    lenum.put("d",3);lenum.put("e",4);lenum.put("f",5);
+    lenum.put("g",6);lenum.put("h",7);
+
+    int bix=0;
+    int biy=0;
+    
+    int pax=0;
+    int pay=0;
+    
+    String bia=Character.toString(bishop.charAt(0));
+    bix=lenum.get(bia);
+    int bib=Integer.valueOf(Character.toString(bishop.charAt(1)));
+    biy=bib-1;
+    
+    String paa=Character.toString(pawn.charAt(0));
+    pax=lenum.get(paa);
+    int pab=Integer.valueOf(Character.toString(pawn.charAt(1)));
+    pay=pab-1;
+    
+   
+    if((pax > bix) && (pay > biy)){
+        int xx=(pax-bix);
+        int yy=(pay-biy);
+        
+        if(xx==yy){
+            return true;
+        }
+    }else if((pax > bix) && (pay < biy)){
+        int xx=(pax-bix);
+        int yy=(biy-pay);
+        
+        if(xx==yy){
+            return true;
+        }
+    }else if((pax < bix) && (pay > biy)){
+        int xx=(bix-pax);
+        int yy=(pay-biy);
+        
+        if(xx==yy){
+            return true;
+        }
+    }else if((pax < bix) && (pay < biy)){
+        int xx=(bix-pax);
+        int yy=(biy-pay);
+        
+        if(xx==yy){
+            return true;
+        }
+    }
+    
+    
+    
+    
+    
+    return false;
+    
+}
