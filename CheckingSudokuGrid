@@ -1,0 +1,160 @@
+boolean sudoku(int[][] grid) {
+    
+    int m=grid.length;
+    int n=grid[0].length;
+    
+    
+    //Checking uniqueness of digits in each row
+    for(int i=0;i<m;i++){
+        ArrayList<Integer> al=new ArrayList<Integer>();
+        
+        for(int j=0;j<n;j++){
+            int temp=grid[i][j];
+            if(al.contains(temp)){
+                return false;
+            }else{
+                al.add(temp);
+            }
+        }
+        
+    }
+    
+    //Checking uniqueness of digits in each column
+    for(int i=0;i<n;i++){
+        ArrayList<Integer> al=new ArrayList<Integer>();
+        
+        for(int j=0;j<m;j++){
+            int temp=grid[j][i];
+            if(al.contains(temp)){
+                return false;
+            }else{
+                al.add(temp);
+            }
+        }
+        
+    }
+    
+    //Checking uniqueness of digits in each sub grid
+     ArrayList<Integer> al=new ArrayList<Integer>();
+    for(int i=0;i<3;i++){
+       
+        for(int j=0;j<3;j++){
+            int temp=grid[i][j];
+         //   System.out.println(temp);
+            if(al.contains(temp)){
+                return false;
+            }else{
+                al.add(temp);
+            }
+        }
+       // System.out.println(al);
+    }
+    ArrayList<Integer> al2=new ArrayList<Integer>();
+    for(int i=0;i<3;i++){
+        
+        for(int j=3;j<6;j++){
+            int temp=grid[i][j];
+            if(al2.contains(temp)){
+                return false;
+            }else{
+                al2.add(temp);
+            }
+        }
+    }
+    
+    ArrayList<Integer> al3=new ArrayList<Integer>();
+     for(int i=0;i<3;i++){
+        
+        for(int j=6;j<9;j++){
+            int temp=grid[i][j];
+            if(al3.contains(temp)){
+                return false;
+            }else{
+                al3.add(temp);
+            }
+        }
+    }
+    
+    ArrayList<Integer> al4=new ArrayList<Integer>();
+     for(int i=3;i<6;i++){
+        
+        for(int j=0;j<3;j++){
+            int temp=grid[i][j];
+            if(al4.contains(temp)){
+                return false;
+            }else{
+                al4.add(temp);
+            }
+        }
+    }
+    
+    ArrayList<Integer> al5=new ArrayList<Integer>();
+    for(int i=3;i<6;i++){
+        
+        for(int j=3;j<6;j++){
+            int temp=grid[i][j];
+            if(al5.contains(temp)){
+                return false;
+            }else{
+                al5.add(temp);
+            }
+        }
+    }
+    
+    ArrayList<Integer> al6=new ArrayList<Integer>();
+     for(int i=3;i<6;i++){
+        
+        for(int j=6;j<9;j++){
+            int temp=grid[i][j];
+            if(al6.contains(temp)){
+                return false;
+            }else{
+                al6.add(temp);
+            }
+        }
+    }
+    
+     ArrayList<Integer> al7=new ArrayList<Integer>();
+     for(int i=6;i<9;i++){
+       
+        for(int j=0;j<3;j++){
+            int temp=grid[i][j];
+            if(al7.contains(temp)){
+                return false;
+            }else{
+                al7.add(temp);
+            }
+        }
+    }
+    
+    ArrayList<Integer> al8=new ArrayList<Integer>();
+    for(int i=6;i<9;i++){
+        
+        for(int j=3;j<6;j++){
+            int temp=grid[i][j];
+            if(al8.contains(temp)){
+                return false;
+            }else{
+                al8.add(temp);
+            }
+        }
+    }
+    
+    ArrayList<Integer> al9=new ArrayList<Integer>();
+     for(int i=6;i<9;i++){
+        
+        for(int j=6;j<9;j++){
+            int temp=grid[i][j];
+            if(al9.contains(temp)){
+                return false;
+            }else{
+                al9.add(temp);
+            }
+        }
+    }
+    
+    
+    
+    return true;
+
+}
