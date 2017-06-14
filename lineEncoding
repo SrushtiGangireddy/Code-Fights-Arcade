@@ -1,0 +1,32 @@
+String lineEncoding(String s) {
+    char[] ch=s.toCharArray();
+    
+    StringBuilder sb=new StringBuilder();
+    char cha=ch[0];
+    int counter=1;
+    for(int i=1;i<ch.length;i++){
+        char chb=ch[i];
+        if(chb == cha){
+            counter++;
+        }else{
+            if(counter>1){
+                 sb.append(String.valueOf(counter));
+                 sb.append(Character.toString(cha));
+                 counter=1;
+                 cha=chb;
+            }else{
+                sb.append(Character.toString(cha));
+                 counter=1;
+                 cha=chb;
+            }
+           
+        }
+    }
+    if(counter > 1){
+        sb.append(String.valueOf(counter));
+        sb.append(Character.toString(cha));
+    }else{
+        sb.append(Character.toString(cha));
+    }
+    return sb.toString();
+}
