@@ -1,0 +1,14 @@
+int sumUpNumbers(String inputString) {
+
+    Pattern p=Pattern.compile("\\d+");
+    Matcher m=p.matcher(inputString);
+    int sum=0;
+    while(m.find()){
+        String temp=m.group();
+        sum += Integer.parseInt(temp);
+    }
+    
+    return sum;
+    
+    
+}
