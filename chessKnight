@@ -1,0 +1,43 @@
+int chessKnight(String cell) {
+
+    HashMap<String,Integer> board=new HashMap<String,Integer>();
+    board.put("a",0);board.put("b",1);board.put("c",2);board.put("d",3);
+    board.put("e",4);board.put("f",5);board.put("g",6);board.put("h",7);
+    
+    int x=board.get(Character.toString(cell.charAt(0)));
+    int y=Integer.parseInt(Character.toString(cell.charAt(1)))-1;
+    
+    int m=7;
+    int n=7;
+    
+    int counter=0;
+    
+    if((x+1) <= m && (y-2) >= 0){
+        counter++;
+    }
+    if((x+2) <= m && (y-1) >= 0){
+        counter++;
+    } 
+    if((x+1) <= m && (y+2) <= n){
+        counter++;
+    }
+    if((x+2) <= m && (y+1) <= n){
+        counter++;
+    }
+    if((x-1) >= 0 && (y-2) >= 0){
+        counter++;
+    }
+    if((x-2) >= 0 && (y-1) >= 0){
+        counter++;
+    } 
+    if((x-1) >= 0 && (y+2) <= n){
+        counter++;
+    }
+    if((x-2) >= 0 && (y+1) <= n){
+        counter++;
+    }
+    
+    
+    
+    return counter;
+}
