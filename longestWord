@@ -1,0 +1,11 @@
+String longestWord(String text) {
+        text = text.replaceAll("[^A-Za-z]+", " ");
+        String word = "";
+        for(String justWord: text.split(" ")){
+            int len = justWord.length();
+            if(word.length()<len){
+                word = justWord;
+            }
+        }
+        return word;
+}
