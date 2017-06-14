@@ -1,0 +1,36 @@
+int differentSquares(int[][] matrix) {
+    
+    int m=matrix.length;
+    int n=matrix[0].length;
+    
+    int counter = 0;
+    
+    ArrayList<ArrayList<Integer>> squares=new ArrayList<ArrayList<Integer>>();
+    
+    for(int i=0;i<m;i++){
+        for(int j=0;j<n;j++){
+            
+            if((i+2) <= m && (j+2) <= n){
+                ArrayList<Integer> al=new ArrayList<Integer>();
+                
+                for(int x=i;x<(i+2);x++){
+                    for(int y=j;y<(j+2);y++){
+                        al.add(matrix[x][y]);
+                    }
+                }
+                
+                if(!squares.contains(al)){
+                    squares.add(al);
+                    counter++;
+                }
+                //squares.add(al);
+            }
+            
+        }
+    }
+    
+    System.out.println(squares);
+    return counter;
+    
+
+}
