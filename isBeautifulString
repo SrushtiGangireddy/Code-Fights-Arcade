@@ -1,0 +1,34 @@
+boolean isBeautifulString(String inputString) {
+    TreeSet<String> letters=new TreeSet<String>();
+    ArrayList<String> chars=new ArrayList<String>();
+    for(int i=0;i<inputString.length();i++){
+        String ch=Character.toString(inputString.charAt(i));
+        chars.add(ch);
+    }
+    letters.add("a"); letters.add("b"); letters.add("c"); letters.add("d");     letters.add("e"); letters.add("f"); letters.add("g"); letters.add("h");
+letters.add("i"); letters.add("j"); letters.add("k"); letters.add("l");
+letters.add("m"); letters.add("n"); letters.add("o"); letters.add("p");
+letters.add("q"); letters.add("r"); letters.add("s"); letters.add("t");
+letters.add("u"); letters.add("v"); letters.add("w"); letters.add("x");
+letters.add("y"); letters.add("z"); 
+   
+   int[] frequencies=new int[26];
+    int j=0;
+    for(String letter:letters){
+        frequencies[j++]=Collections.frequency(chars,letter);
+    }
+    
+    for(int x=0;x<frequencies.length-1;x++){
+        int a=frequencies[x];
+        int b=frequencies[x+1];
+        if(a < b){
+            return false;
+        }
+    }
+    return true;
+    
+    
+    
+    
+    
+}
