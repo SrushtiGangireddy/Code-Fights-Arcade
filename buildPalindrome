@@ -1,0 +1,61 @@
+String buildPalindrome(String st) {
+    
+     char[] ch=st.toCharArray();
+     int start=0;
+     int end=ch.length-1;
+    
+    if(isPalindrome(ch,start,end)){
+        return st;
+    }else{
+       
+        
+        start++;
+        
+        while(start < end){
+            if(isPalindrome(ch,start,end)){
+                break;
+            }
+            start++;
+        }
+    }
+    
+    int total=ch.length+start;
+    
+    char[] result=new char[total];
+    
+    for(int i=0;i<ch.length;i++){
+        result[i]=ch[i];
+    }
+    
+    for(int j=ch.length;j<total;j++){
+        result[j]=ch[--start];
+    }
+    
+    String palindrome="";
+    for(char cha:result){
+        if(palindrome.length() == 0){
+            palindrome=Character.toString(cha);
+        }else{
+            palindrome = palindrome+Character.toString(cha);
+        }
+    }
+    
+    
+    System.out.println(start);
+    return palindrome;
+}
+
+boolean isPalindrome(char[] ch,int start,int end){
+    while(start < end){
+        if(ch[start] != ch[end]){
+            return false;
+        }
+        
+            start++;
+            end--;
+        
+    }
+    return true;
+    
+    
+}
