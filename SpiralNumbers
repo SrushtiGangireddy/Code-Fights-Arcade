@@ -1,0 +1,55 @@
+int[][] spiralNumbers(int n) {
+    
+    int len=n*n;
+    
+    int[][] matrix=new int[n][n];
+    
+    int minrow=0;
+    int mincol=0;
+    
+    int maxrow=n-1;
+    int maxcol=n-1;
+    
+    int value=1;
+    
+    int maxvalue=n*n;
+    
+    while(value <= maxvalue){
+        
+        //Going from left to right
+        for(int i=mincol;i<=maxcol;i++){
+            matrix[minrow][i]=value;
+            value++;
+        }
+        
+        //Going down from the right corner
+        for(int i=minrow+1;i<=maxrow;i++){
+            matrix[i][maxcol]=value;
+            value++;
+        }
+        
+        //Going left from the bottom
+        for(int i=maxcol-1;i>=mincol;i--){
+            matrix[maxrow][i]=value;
+            value++;
+        }
+        
+        //Going top from the left bottom
+        for(int i=maxrow-1;i>=minrow+1;i--){
+            matrix[i][mincol]=value;
+            value++;
+        }
+        
+        maxrow--;
+        minrow++;
+        maxcol--;
+        mincol++;
+        
+    }
+    
+    
+    
+    
+    return matrix;
+
+}
