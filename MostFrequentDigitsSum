@@ -1,0 +1,79 @@
+int mostFrequentDigitSum(int n) {
+    
+    ArrayList<Integer> sequence1 = new ArrayList<Integer>();
+    HashSet<Integer> unique = new HashSet<Integer>();
+    
+    sequence1.add(n);
+    
+    while(n > 0){
+        
+        n = n - step(n);
+        sequence1.add(n);
+        
+    }
+    
+    //System.out.println(sequence1);    
+    
+    ArrayList<Integer> sequence2 = new ArrayList<Integer>();
+    
+    for(Integer num:sequence1){
+        int temp = step(num);
+        sequence2.add(temp);
+        unique.add(temp);
+    }
+    
+    int max_occur = 0;
+    int max = 0;
+    
+    HashMap<Integer,Integer> count = new HashMap<Integer,Integer>();
+    
+    for(Integer uni:unique){
+        int num_times = Collections.frequency(sequence2,uni);
+        count.put(uni,num_times);
+        if(num_times > max_occur && uni != 0){
+            max = uni;
+            max_occur = num_times;
+        }
+        
+        //System.out.println("Element "+uni+" Occurrence "+num_times);
+    }
+    
+    System.out.println(count);
+    
+    Iterator it = count.entrySet().iterator();
+    while(it.hasNext()){
+        
+        Map.Entry pair = (Map.Entry)it.next();
+        
+        int key = (Integer)pair.getKey();
+        int val = (Integer)pair.getValue();
+        
+        if(val == max_occur){
+            if(max > key){
+                
+            }else{
+                max = key;
+            }
+        }
+        
+        
+    }
+    
+
+    return max;
+}
+
+int step(int number){
+    
+    String str = String.valueOf(number);
+    
+    int sum = 0;
+    
+    for(int i=0;i<str.length();i++){
+        
+        sum += Integer.valueOf(Character.toString(str.charAt(i)));
+        
+    }
+    
+    return sum;
+}
