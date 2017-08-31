@@ -1,0 +1,70 @@
+int numberOfClans(int[] divisors, int k) {
+    
+    TreeMap<Integer,ArrayList<Integer>> groups = new TreeMap<Integer,ArrayList<Integer>>();
+    
+    
+    for(int i=1;i<=k;i++){
+        
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        
+        for(int div:divisors){
+            
+            if((i%div) == 0){
+                temp.add(div);
+            }
+            
+        }
+        
+        groups.put(i,temp);
+        
+        
+    }
+    
+    
+//    System.out.println(groups);
+/*
+    Iterator it = groups.entrySet().iterator();
+    while(it.hasNext()){
+        
+        Map.Entry pair = (Map.Entry)it.next();
+        
+        int key = (Integer)pair.getKey();
+        ArrayList<Integer> val = (ArrayList<Integer>)pair.getValue();
+        
+        System.out.println(key);
+        System.out.println(val);
+        
+        
+    }
+    
+    */
+    
+    int clan_counter = 0;
+    int num_ele = 0;
+    for(int i=1;i<=k;i++){
+        
+        for(int j=i+1;j<=k;j++){
+            
+            ArrayList<Integer> temp1 = (ArrayList<Integer>)groups.get(i);
+            ArrayList<Integer> temp2 = (ArrayList<Integer>)groups.get(j);
+            
+            
+            if(temp1.equals(temp2)){
+                clan_counter++;
+                num_ele = num_ele + 2;
+                System.out.println(i+" "+j);
+                break;
+            }
+            
+            
+            
+        }
+        
+    }
+    
+    clan_counter = clan_counter + (k-num_ele);
+    
+    return clan_counter;
+    
+
+}
