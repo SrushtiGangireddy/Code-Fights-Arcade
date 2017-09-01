@@ -1,0 +1,39 @@
+String[] allLongestStrings(String[] inputArray) {
+    
+    HashMap<Integer,ArrayList<String>> strings = new HashMap<Integer,ArrayList<String>>();
+    
+    int len = inputArray.length;
+    
+    int max = 0;
+    
+    for(int i=0;i<len;i++){
+        
+        int l = inputArray[i].length();
+        if(max < l){
+            max = l;
+        }
+        
+        if(strings.containsKey(l)){
+            ArrayList<String> temp = (ArrayList<String>)strings.get(l);
+            temp.add(inputArray[i]);
+            strings.put(l,temp);
+        }else{
+            ArrayList<String> temp = new ArrayList<String>();
+            temp.add(inputArray[i]);
+            strings.put(l,temp);
+        }
+        
+    }
+    
+    ArrayList<String> temp = (ArrayList<String>)strings.get(max);
+    
+    String[] longest = new String[temp.size()];
+    
+    int k = 0;
+    for(String str:temp){
+        longest[k++] = str;
+    }
+    
+    return longest;
+
+}
