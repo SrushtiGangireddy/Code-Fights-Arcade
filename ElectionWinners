@@ -1,0 +1,25 @@
+int electionsWinners(int[] votes, int k) {
+    
+    ArrayList<Integer> elec = new ArrayList<Integer>();
+    int freq = 0;
+    int counter=0;
+    for(Integer vote:votes){
+        elec.add(vote);
+    }
+    
+    Collections.sort(elec);
+   
+    
+    int higher = elec.get(elec.size()-1);
+     freq = Collections.frequency(elec,higher);
+    
+    for(Integer vote:votes){
+        
+        if((vote+k) > higher){
+            counter++;
+        }
+        
+    }
+    
+    return counter > 0 ? counter : (freq == 1 ? 1:0);
+}
