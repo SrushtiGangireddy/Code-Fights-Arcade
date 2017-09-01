@@ -1,0 +1,41 @@
+boolean alphabetSubsequence(String s) {
+    
+    ArrayList<String> letters = new ArrayList<String>();
+    
+    for(int i=0;i<s.length();i++){
+        
+        String temp = Character.toString(s.charAt(i));
+        
+        if(letters.contains(temp)){
+            return false;
+        }else{
+            letters.add(temp);
+        }
+        
+    }
+    
+    int prev = -128;
+    int next = -128;
+    
+    String[] lets = new String[letters.size()];
+    int l = 0;
+    for(String let:letters){
+        lets[l++] = let;
+    }
+    
+    for(int x=0;x<lets.length;x++){
+        for(int y=x+1;y<lets.length;y++){
+           char ch1 = lets[x].charAt(0);
+            char ch2 = lets[y].charAt(0);
+            
+            int ch1a = (int)ch1;
+            int ch1b = (int)ch2;
+            
+            if(ch1a > ch1b){
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
