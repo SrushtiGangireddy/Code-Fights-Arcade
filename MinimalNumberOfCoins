@@ -1,0 +1,31 @@
+int minimalNumberOfCoins(int[] coins, int price) {
+    
+   int counter = 0;
+   
+   ArrayList<Integer> cos = new ArrayList<Integer>();
+   
+   for(Integer coin:coins){
+      cos.add(coin);
+   }
+   
+   Collections.sort(cos);
+   
+
+  
+   
+   while(price > 0){
+       int n = cos.size() - 1;
+      Integer temp = cos.get(n);
+      
+      if((price-temp) >= 0){
+         counter++;
+         price = price - temp;
+      }else{
+         cos.remove(temp);
+      }
+      
+      
+   }
+   
+   return counter;
+}
