@@ -1,0 +1,28 @@
+String integerToStringOfFixedWidth(int number, int width) {
+    
+    String num_str = String.valueOf(number);
+    int len = num_str.length();
+    
+    if(len == width){
+        return num_str;
+    }else if(len > width){
+        
+        int rem = len - width;
+        String temp = "";
+        
+        for(int i=0+rem;i<len;i++){
+            temp = temp+Character.toString(num_str.charAt(i));
+        }
+        return temp;
+        
+    }else if(len < width){
+        
+        int rem = width - len;
+        
+        for(int i=0;i<rem;i++){
+            num_str = "0"+num_str;
+        }
+        
+    }
+    return num_str;
+}
