@@ -1,0 +1,30 @@
+int[] houseOfCats(int legs) {
+    
+    ArrayList<Integer> people = new ArrayList<Integer>();
+    
+    int p = 0;
+    
+    while(legs >= 0){
+        int c = 0;
+        
+        if((legs%4 == 2) || (legs%4 == 0)){
+            if(legs%4 == 2){
+                c = 1;
+            }else{
+                c = 0;
+            }
+        }
+        
+        people.add(p+c);
+        p+=2;
+        legs-=4;
+    }
+    
+    int[] num_people = new int[people.size()];
+    int k = 0;
+    for(Integer pp:people){
+        num_people[k++] = pp;
+    }
+    return num_people;
+
+}
