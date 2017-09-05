@@ -1,0 +1,23 @@
+String cipher26(String message) {
+    
+    String result = "";
+    
+    int now = 0, prev = 0;
+    
+    for(int i=0;i<message.length();i++){
+        
+        int val = (int)message.charAt(i) - 97;
+        now = val - prev;
+        if(now < 0){
+            now = now + 26;
+        }
+        result = result + (char)(now+97);
+        prev = val;
+        
+        
+    }
+    
+    return result;
+    
+
+}
