@@ -1,0 +1,22 @@
+String stolenLunch(String note) {
+    
+    String result = "";
+    
+    for(int i=0;i<note.length();i++){
+        
+        int val = (int)note.charAt(i);
+        
+        if(val >= 48 && val <= 57){
+            char temp = (char)(val - 48);
+            result = result + (char)(temp+97);
+        }else if(val>=97 && val<=106){
+            char temp = (char)(((int)note.charAt(i))-97);
+            result = result+(char)(temp+48);
+        }else{
+            result = result+note.charAt(i);
+        }
+        
+    }
+    return result;
+
+}
