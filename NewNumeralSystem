@@ -1,0 +1,121 @@
+String[] newNumeralSystem(char number) {
+    
+    HashMap<Integer,String> nl = new HashMap<Integer,String>();
+    HashMap<String,Integer> ln = new HashMap<String,Integer>();
+    fillNL(nl);
+    fillLN(ln);
+    
+    int num = ln.get(String.valueOf(number));
+    int k = 0;
+    ArrayList<String> result = new ArrayList<String>();
+    ArrayList<String> visited = new ArrayList<String>();
+    
+    for(int i=0;i<=num/2;i++){
+        
+        int a = i;
+        int b = num-a;
+        
+        System.out.println(a+" "+b);
+        
+        if((a+b) == num){
+            String tempa = nl.get(a);
+            String tempb = nl.get(b);
+            
+            
+            if(tempa != null && tempb!=null){
+                
+             
+            
+             String temp =tempa+" + "+tempb;
+            result.add(temp);
+                
+           
+            }
+            if(tempa != null && tempb != null){
+            if(tempa.equals(tempb)){
+                break;
+            }
+            }
+            
+           
+            
+        }
+        
+    }
+    
+    String[] sum = new String[result.size()];
+    
+    for(String r:result){
+        sum[k++] = r;
+    }
+    
+    return sum;
+    
+    
+    
+    
+    
+    
+
+}
+
+void fillNL(HashMap<Integer,String> ns){
+    
+    ns.put(0,"A");
+    ns.put(1,"B");
+    ns.put(2,"C");
+    ns.put(3,"D");
+    ns.put(4,"E");
+    ns.put(5,"F");
+    ns.put(6,"G");
+    ns.put(7,"H");
+    ns.put(8,"I");
+    ns.put(9,"J");
+    ns.put(10,"K");
+    ns.put(11,"L");
+    ns.put(12,"M");
+    ns.put(13,"N");
+    ns.put(14,"O");
+    ns.put(15,"P");
+    ns.put(16,"Q");
+    ns.put(17,"R");
+    ns.put(18,"S");
+    ns.put(19,"T");
+    ns.put(20,"U");
+    ns.put(21,"V");
+    ns.put(22,"W");
+    ns.put(23,"X");
+    ns.put(24,"Y");
+    ns.put(25,"Z");
+    
+}
+
+void fillLN(HashMap<String,Integer> ln){
+    ln.put("A",0);
+    ln.put("B",1);
+    ln.put("C",2);
+    ln.put("D",3);
+    ln.put("E",4);
+    ln.put("F",5);
+    ln.put("G",6);
+    ln.put("H",7);
+    ln.put("I",8);
+    ln.put("J",9);
+    ln.put("K",10);
+    ln.put("L",11);
+    ln.put("M",12);
+    ln.put("N",13);
+    ln.put("O",14);
+    ln.put("P",15);
+    ln.put("Q",16);
+    ln.put("R",17);
+    ln.put("S",18);
+    ln.put("T",19);
+    ln.put("U",20);
+    ln.put("V",21);
+    ln.put("W",22);
+    ln.put("X",23);
+    ln.put("Y",24);
+    ln.put("Z",25);
+    
+}
