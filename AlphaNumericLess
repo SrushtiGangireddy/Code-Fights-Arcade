@@ -1,0 +1,63 @@
+bool alphanumericLess(string s1, string s2) {
+    string[] l1 = getTokens(s1);
+    string[] l2 = getTokens(s2);
+    for(int i=0;i<Math.Max(l1.Length,l2.Length);i++) {
+        if(i==l1.Length)
+            return true;
+        if(i==l2.Length)
+            return false;
+         
+        if(!isDigit(l1[i]) && !isDigit(l2[i])) {
+            if(string.Compare(l1[i],l2[i],false)<0)
+                return true;
+            else if(string.Compare(l1[i],l2[i],false)>0)
+                return false;
+        }
+        else if(isDigit(l1[i])||isDigit(l2[i])) {
+            if(isDigit(l1[i])&&isDigit(l2[i])) {
+                if(int.Parse(l1[i])==int.Parse(l2[i]))
+                    return l1[i].Length>l2[i].Length;
+                else
+                    return int.Parse(l1[i])<int.Parse(l2[i]);
+            }
+            else if(isDigit(l1[i]))
+                return true;
+            else
+                return false;
+             
+        }
+    }
+    return false;
+}
+string[] getTokens(string s) {
+    List<string> result = new List<string>();
+     
+    bool isDigit = false;
+     
+    char currentC;
+    string strItem="";
+     
+    for(int index=0;index<s.Length;index++) {
+        currentC = s[index];
+        if(48<=currentC && currentC <=57) {
+            if(isDigit)
+                strItem+=currentC;
+            else {
+                strItem=""+currentC;                
+            }
+            isDigit= true;
+        }
+        else {
+            result.Add(""+currentC);
+            strItem="";
+            isDigit = false;
+        }
+    }
+    if(isDigit && !string.IsNullOrEmpty(strItem))
+        result.Add(strItem);
+    return result.ToArray();
+}
+bool isDigit(string s) {
+    int test;
+    return int.TryParse(s, out test);
+}
