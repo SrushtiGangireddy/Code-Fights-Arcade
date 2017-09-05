@@ -1,0 +1,32 @@
+boolean higherVersion(String ver1, String ver2) {
+    
+    String[] a = ver1.split("\\.");
+    String[] b = ver2.split("\\.");
+    
+    int l1 = a.length;
+    int l2 = b.length;
+    
+    for(int i=0;i<l1;i++){
+        
+        int one = Integer.valueOf(a[i]);
+        int two = Integer.valueOf(b[i]);
+        
+        System.out.println(one+" "+two);
+        
+        if(one > two){
+            return true;
+        }else if(one == two){
+            
+        }else{
+            return false;
+        }
+        
+        
+    }
+    
+    return false;
+    
+    
+    
+
+}
