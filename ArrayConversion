@@ -1,0 +1,53 @@
+int arrayConversion(int[] inputArray) {
+    
+    int counter = 1;
+    
+    ArrayList<Integer> nums = new ArrayList<Integer>();
+    
+    for(Integer num:inputArray){
+        nums.add(num);
+    }
+    
+    int len = nums.size();
+    
+    while(len > 1){
+        
+        ArrayList<Integer> temp = new ArrayList<Integer>();
+        System.out.println(nums);
+        
+        if(counter%2 != 0){
+            
+            for(int i=0;i<len-1;i=i+2){
+                
+                temp.add((nums.get(i)+nums.get(i+1)));
+                
+            }
+            
+            nums = temp;
+            len = nums.size();
+            counter++;
+            
+            
+        }else{
+            
+            for(int i=0;i<len-1;i=i+2){
+                
+                temp.add((nums.get(i)*nums.get(i+1)));
+                
+            }
+            
+            nums = temp;
+            len = nums.size();
+            counter++;
+            
+            
+        }
+        
+        
+    }
+    
+    System.out.println(nums.get(0));
+    
+    return nums.get(0);
+
+}
