@@ -1,0 +1,33 @@
+int stringsCrossover(String[] inputArray, String result) {
+    
+    int counter = 0;
+    
+    for(int i=0;i<inputArray.length;i++){
+        
+        for(int j=i+1;j<inputArray.length;j++){
+            
+            String word1 = inputArray[i];
+            String word2 = inputArray[j];
+            
+            boolean flag = true;
+            
+            for(int k=0;k<result.length();k++){
+                
+                if(result.charAt(k) != word1.charAt(k) && result.charAt(k) != word2.charAt(k)){
+                    flag=false;
+                    break;
+                }
+                
+            }
+            if(flag){
+                counter++;
+            }
+            
+            
+        }
+        
+    }
+    
+    return counter;
+
+}
